@@ -1,0 +1,2 @@
+/* 空文件：替代飞书妙搭开发期注入的 inspector.dev.css。
+   静态站点不需要妙搭编辑器 inspector，保留空样式以满足 client-toolkit 的 @import。 */

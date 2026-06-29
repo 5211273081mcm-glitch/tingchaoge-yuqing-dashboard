@@ -1,0 +1,22 @@
+@import '@lark-apaas/client-toolkit/lib/index.css';
+@import "tw-animate-css";
+@import "./tailwind-theme.css";
+@import "./typography.css";
+
+@source "../../node_modules/streamdown/dist/*.js";
+@config "../../tailwind.config.ts";
+
+/* 静态站点基础底色：避免白屏闪烁与页面空隙露白。
+   字体全部使用本地系统字体降级，不强依赖 Google Fonts。 */
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  background: #0d0d12;
+}
+
+body {
+  font-family: Orbitron, Inter, "DIN Alternate", "Arial Narrow",
+    "Microsoft YaHei", "PingFang SC", sans-serif;
+}
