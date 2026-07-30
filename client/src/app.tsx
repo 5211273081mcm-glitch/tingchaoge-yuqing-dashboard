@@ -6,12 +6,14 @@ import NotFound from './pages/NotFound/NotFound';
 import DashboardAprilPage from './pages/DashboardAprilPage/DashboardAprilPage';
 import DashboardMayPage from './pages/DashboardMayPage/DashboardMayPage';
 import DashboardJunePage from './pages/DashboardJunePage/DashboardJunePage';
+import DashboardJulyPage from './pages/DashboardJulyPage/DashboardJulyPage';
 
 const RoutesComponent = () => {
   return (
     <Routes>
       <Route element={<Layout />}>
-        <Route index element={<DashboardJunePage />} />
+        <Route index element={<DashboardJulyPage />} />
+        <Route path="/july" element={<DashboardJulyPage />} />
         <Route path="/june" element={<DashboardJunePage />} />
         <Route path="/may" element={<DashboardMayPage />} />
         <Route path="/april" element={<DashboardAprilPage />} />
