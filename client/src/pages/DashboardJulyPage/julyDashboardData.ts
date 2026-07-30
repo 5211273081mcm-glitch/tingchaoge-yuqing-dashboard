@@ -61,10 +61,10 @@ export interface CoreEvent {
 
 // ============ KPI（7月汇报口径） ============
 export const kpiData = [
-  { label: '风险事件', value: 81, color: colors.accent, icon: AlertTriangle },
+  { label: '风险事件', value: 83, color: colors.accent, icon: AlertTriangle },
   { label: '舆情事件', value: 0, color: colors.accent, icon: Flame },
   { label: '危险信号', value: 1, color: colors.warning, icon: Siren },
-  { label: '吐槽主播', value: 75, color: colors.danger, icon: Megaphone },
+  { label: '吐槽主播', value: 77, color: colors.danger, icon: Megaphone },
   { label: '体验作为', value: 5, color: colors.secondary, icon: Video },
 ];
 
@@ -350,11 +350,12 @@ export const topProblems = [
   { tag: '合同用工', color: colors.accent, content: 'T.臣叔长期停播、解约仲裁未决，外溢为对公司合同公平性、用工管理及企业信用的集中攻击' },
   { tag: '赛期风险', color: colors.secondary, content: '"幻乐岛之声"公会赛期间，回流票、ACU等数据质疑升温，头部主播出现被抬、翻旧账的情况' },
   { tag: '内容运营', color: colors.secondary, content: '群星之约、礼厅《无畏契约-迷核手势舞》被梗化传播，叠加外宣评论区失管被质疑"吃黑流"' },
+  { tag: '外部形象', color: colors.danger, content: 'T.拾伍线下影像被内/外网搬运，遭外貌体型羞辱并外溢为对听潮阁主播群体的标签化嘲讽' },
 ];
 
 export const tasks = [
   { label: '线索前置', labelColor: colors.accent, meaning: '核心机制', content: '建立主动申报和异常线索登记机制，当线索达到风险条件后由舆情、业务、法务共同启动分级核验。' },
   { label: '赛事风控', labelColor: colors.warning, meaning: '重点推进', content: '10月公会赛及次年1月年度赛前，前置完成头部主播历史舆情排查、票力与异常数据核验及粉丝群管理预案。' },
-  { label: '外宣闭环', labelColor: colors.secondary, meaning: '重点推进', content: '补齐视频号及外宣矩阵的账号归属、发布复核、评论巡查和异常上报机制。' },
+  { label: '外宣闭环', labelColor: colors.secondary, meaning: '重点推进', content: '补齐视频号及外宣矩阵的账号归属、发布复核、评论巡查和异常上报机制；防范公开影像被梗化并附着失实行业标签。' },
   { label: '标准统一', labelColor: colors.success, meaning: '持续完善', content: '建立标准统一、尺度透明、允许纠偏的管理秩序，投诉撤回或私人和解不应自然终止内部核查与纪律审查。' },
 ];

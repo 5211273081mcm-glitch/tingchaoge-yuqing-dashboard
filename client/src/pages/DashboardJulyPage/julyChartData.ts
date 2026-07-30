@@ -1,9 +1,9 @@
 import type { EChartsOption } from 'echarts';
 import { colors } from './julyDashboardData';
 
-// 5月 104 / 6月 83 / 7月 81
+// 5月 104 / 6月 83 / 7月 83
 export const trendMonths = ['5月', '6月', '7月'];
-export const trendValues = [104, 83, 81];
+export const trendValues = [104, 83, 83];
 
 export const trendOption: EChartsOption = {
   backgroundColor: 'transparent',
@@ -55,7 +55,7 @@ export const trendOption: EChartsOption = {
 
 export const riskTypeData = [
   { name: '危险信号', value: 1, color: colors.warning },
-  { name: '吐槽主播', value: 75, color: colors.accent },
+  { name: '吐槽主播', value: 77, color: colors.accent },
   { name: '体验作为', value: 5, color: colors.secondary },
 ];
 

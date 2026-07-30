@@ -455,7 +455,7 @@ const DashboardJulyPage: React.FC = () => {
                 </div>
                 <p className="text-sm leading-relaxed" style={{ color: colors.textMuted }}>
                   7月舆情风险水位<span style={{ color: colors.warning }}>延续6月</span>，未形成高等级破圈事件。风险集中于
-                  <span style={{ color: colors.accent }}>公会赛数据质疑、头部粉圈攻防、主播高敏言论及私德与入退会管理</span>等方面。
+                  <span style={{ color: colors.accent }}>公会赛数据质疑、头部粉圈攻防、主播高敏言论与外部形象、私德及入退会管理</span>等方面。
                   环顾今年上半年高于去年同期的整体风险水位，叠加去年下半年的上升趋势，预测今年下半年公司整体舆情承压将
                   <span className="font-semibold" style={{ color: colors.secondary }}>
                     升至新高位
@@ -514,7 +514,7 @@ const DashboardJulyPage: React.FC = () => {
             <div className="flex items-center gap-2 mb-4">
               <ListChecks className="w-5 h-5" style={{ color: colors.accent }} />
               <h2 className="text-base font-bold tech-font tracking-tight" style={{ color: colors.text }}>
-                核心问题 TOP5
+                核心问题 TOP6
               </h2>
               <span className="text-[10px] ml-2" style={{ color: colors.textMuted }}>
                 本月主要风险事件
