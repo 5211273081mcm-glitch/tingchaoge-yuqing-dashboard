@@ -8,12 +8,14 @@ import DashboardMayPage from './pages/DashboardMayPage/DashboardMayPage';
 import DashboardJunePage from './pages/DashboardJunePage/DashboardJunePage';
 import DashboardJulyPage from './pages/DashboardJulyPage/DashboardJulyPage';
 import DashboardAugustPage from './pages/DashboardAugustPage/DashboardAugustPage';
+import DashboardSeptemberPage from './pages/DashboardSeptemberPage/DashboardSeptemberPage';
 
 const RoutesComponent = () => {
   return (
     <Routes>
       <Route element={<Layout />}>
-        <Route index element={<DashboardAugustPage />} />
+        <Route index element={<DashboardSeptemberPage />} />
+        <Route path="/september" element={<DashboardSeptemberPage />} />
         <Route path="/august" element={<DashboardAugustPage />} />
         <Route path="/july" element={<DashboardJulyPage />} />
         <Route path="/june" element={<DashboardJunePage />} />
