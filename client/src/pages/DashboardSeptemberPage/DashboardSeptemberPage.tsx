@@ -225,9 +225,10 @@ const InfoBox: React.FC<{
   </div>
 );
 
-// 核心事件详情卡片（展开含 7 个维度）
+// 核心事件详情卡片：默认折叠，点击标题展开 7 个维度
 const EventDetailCard: React.FC<{ data: CoreEvent }> = ({ data }) => {
   const Icon = data.icon;
+  const [expanded, setExpanded] = useState(false);
 
   const bulletList = (items: string[], iconColor: string, IconCmp: React.ElementType) => (
     <div className="space-y-1.5">
@@ -241,15 +242,26 @@ const EventDetailCard: React.FC<{ data: CoreEvent }> = ({ data }) => {
   );
 
   return (
-    <div className="rounded-xl overflow-hidden w-full" style={{ background: colors.surface, border: `1px solid ${colors.border}` }}>
-      {/* 头部 */}
-      <div className="p-4 border-b" style={{ borderColor: colors.border }}>
-        <div className="flex items-center gap-3">
+    <div
+      className="rounded-xl overflow-hidden w-full transition-all duration-300"
+      style={{
+        background: colors.surface,
+        border: `1px solid ${expanded ? data.labelColor : colors.border}`,
+        boxShadow: expanded ? `0 0 20px ${data.labelColor}20` : 'none',
+      }}
+    >
+      <button
+        type="button"
+        onClick={() => setExpanded((v) => !v)}
+        className="w-full p-4 flex items-center justify-between text-left transition-all"
+        style={{ background: expanded ? `${data.labelColor}10` : 'transparent', borderBottom: expanded ? `1px solid ${colors.border}` : 'none' }}
+      >
+        <div className="flex items-center gap-3 min-w-0 flex-1">
           <div className="p-2.5 rounded-lg shrink-0" style={{ background: `${data.labelColor}15` }}>
             <Icon className="w-5 h-5" style={{ color: data.labelColor }} />
           </div>
           <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 mb-1">
+            <div className="flex items-center gap-2 mb-1 flex-wrap">
               <span
                 className="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded border"
                 style={{ backgroundColor: `${data.labelColor}15`, color: data.labelColor, borderColor: `${data.labelColor}30` }}
@@ -260,74 +272,84 @@ const EventDetailCard: React.FC<{ data: CoreEvent }> = ({ data }) => {
                 {data.riskLevel}
               </span>
             </div>
-            <h3 className="text-lg font-bold truncate" style={{ color: colors.text }}>
+            <h3 className="text-lg font-bold" style={{ color: colors.text }}>
               {data.title}
             </h3>
           </div>
         </div>
-      </div>
-
-      {/* 内容 - 横向网格布局 */}
-      <div className="p-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          {/* 左侧：事件简述 + 发展脉络 + 时间节点 */}
-          <div className="space-y-4">
-            <InfoBox title="事件简述" titleColor={data.labelColor} accentLeft={data.labelColor} bg={`${data.labelColor}08`}>
-              <p className="text-xs leading-relaxed" style={{ color: colors.text }}>
-                {data.summary}
-              </p>
-            </InfoBox>
-
-            <InfoBox title="发展脉络" titleColor={colors.secondary}>
-              <div className="space-y-1.5 max-h-[200px] overflow-y-auto custom-scrollbar">
-                {data.timeline.map((item, i) => (
-                  <div key={i} className="flex gap-2 text-xs" style={{ color: colors.textMuted }}>
-                    <ChevronRight className="w-3 h-3 mt-0.5 shrink-0" style={{ color: colors.secondary }} />
-                    <span className="leading-relaxed">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </InfoBox>
-
-            <InfoBox title="时间节点" titleColor={colors.accent}>
-              <div className="flex flex-wrap gap-2">
-                {data.nodes.map((node, i) => (
-                  <span
-                    key={i}
-                    className="text-[10px] font-mono px-2 py-1 rounded"
-                    style={{ background: `${colors.accent}12`, color: colors.text, border: `1px solid ${colors.accent}25` }}
-                  >
-                    {node}
-                  </span>
-                ))}
-              </div>
-            </InfoBox>
-          </div>
-
-          {/* 右侧：争议焦点 + 公司处置 + 当前状态 + 舆情结论 */}
-          <div className="space-y-4">
-            <InfoBox title="争议焦点" titleColor={colors.danger}>
-              {bulletList(data.focus, colors.danger, Crosshair)}
-            </InfoBox>
-
-            <InfoBox title="公司处置" titleColor={colors.warning}>
-              {bulletList(data.handling, colors.warning, Gavel)}
-            </InfoBox>
-
-            <InfoBox title="当前状态" titleColor={colors.secondary}>
-              <p className="text-xs leading-relaxed" style={{ color: colors.text }}>
-                {data.current}
-              </p>
-            </InfoBox>
-
-            <InfoBox title="舆情结论" titleColor={colors.success}>
-              <p className="text-xs leading-relaxed" style={{ color: colors.textMuted }}>
-                {data.conclusion}
-              </p>
-            </InfoBox>
+        <div className="flex items-center gap-3 shrink-0 ml-3">
+          <span className="text-[10px]" style={{ color: colors.textMuted }}>
+            {expanded ? '收起详情' : '展开详情'}
+          </span>
+          <div
+            className="p-1.5 rounded-lg transition-transform duration-300"
+            style={{ background: colors.header, transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)' }}
+          >
+            <ChevronDown className="w-4 h-4" style={{ color: colors.textMuted }} />
           </div>
         </div>
-      </div>
+      </button>
+
+      {expanded && (
+        <div className="p-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <div className="space-y-4">
+              <InfoBox title="事件简述" titleColor={data.labelColor} accentLeft={data.labelColor} bg={`${data.labelColor}08`}>
+                <p className="text-xs leading-relaxed" style={{ color: colors.text }}>
+                  {data.summary}
+                </p>
+              </InfoBox>
+
+              <InfoBox title="发展脉络" titleColor={colors.secondary}>
+                <div className="space-y-3 max-h-[420px] overflow-y-auto custom-scrollbar pr-1">
+                  {data.timeline.map((item, i) => (
+                    <div key={i} className="flex gap-2 text-xs" style={{ color: colors.textMuted }}>
+                      <ChevronRight className="w-3 h-3 mt-0.5 shrink-0" style={{ color: colors.secondary }} />
+                      <span className="leading-relaxed whitespace-pre-wrap">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </InfoBox>
+
+              <InfoBox title="时间节点" titleColor={colors.accent}>
+                <div className="flex flex-wrap gap-2">
+                  {data.nodes.map((node, i) => (
+                    <span
+                      key={i}
+                      className="text-[10px] font-mono px-2 py-1 rounded"
+                      style={{ background: `${colors.accent}12`, color: colors.text, border: `1px solid ${colors.accent}25` }}
+                    >
+                      {node}
+                    </span>
+                  ))}
+                </div>
+              </InfoBox>
+            </div>
+
+            <div className="space-y-4">
+              <InfoBox title="争议焦点" titleColor={colors.danger}>
+                {bulletList(data.focus, colors.danger, Crosshair)}
+              </InfoBox>
+
+              <InfoBox title="公司处置" titleColor={colors.warning}>
+                {bulletList(data.handling, colors.warning, Gavel)}
+              </InfoBox>
+
+              <InfoBox title="当前状态" titleColor={colors.secondary}>
+                <p className="text-xs leading-relaxed" style={{ color: colors.text }}>
+                  {data.current}
+                </p>
+              </InfoBox>
+
+              <InfoBox title="舆情结论" titleColor={colors.success}>
+                <p className="text-xs leading-relaxed" style={{ color: colors.textMuted }}>
+                  {data.conclusion}
+                </p>
+              </InfoBox>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
@@ -570,7 +592,7 @@ const DashboardSeptemberPage: React.FC = () => {
                 核心事件详情
               </h2>
               <span className="text-[10px] ml-2" style={{ color: colors.textMuted }}>
-                每项含 事件简述 / 发展脉络 / 时间节点 / 争议焦点 / 公司处置 / 当前状态 / 舆情结论
+                默认折叠，点击标题展开；每项含 事件简述 / 发展脉络 / 时间节点 / 争议焦点 / 公司处置 / 当前状态 / 舆情结论
               </span>
             </div>
             <div className="flex flex-col gap-4">
