@@ -1,9 +1,9 @@
 import type { EChartsOption } from 'echarts';
 import { colors } from './octoberDashboardData';
 
-// 7月 83 / 8月 90 / 9月 100 / 10月 85
+// 7月 83 / 8月 90 / 9月 100 / 10月 86
 export const trendMonths = ['7月', '8月', '9月', '10月'];
-export const trendValues = [83, 90, 100, 85];
+export const trendValues = [83, 90, 100, 86];
 
 export const trendOption: EChartsOption = {
   backgroundColor: 'transparent',
@@ -55,7 +55,7 @@ export const trendOption: EChartsOption = {
 
 export const riskTypeData = [
   { name: '舆情事件', value: 0, color: colors.danger },
-  { name: '危险信号', value: 3, color: colors.warning },
+  { name: '危险信号', value: 4, color: colors.warning },
   { name: '吐槽主播', value: 73, color: colors.accent },
   { name: '体验作为', value: 9, color: colors.secondary },
 ];
@@ -102,12 +102,12 @@ export const riskRatioOption: EChartsOption = {
 export const doubanHeatData = [
   { name: '姜添', heat: 100, changeValue: '头部竞争 · 升温', color: colors.warning },
   { name: '萨满', heat: 96, changeValue: '榜单分歧 · 升温', color: colors.warning },
-  { name: '张秋水', heat: 78, changeValue: '露脸围观 · 上升', color: colors.accent },
-  { name: '九叔', heat: 72, changeValue: '二创破圈 · 上升', color: colors.accent },
-  { name: '六月', heat: 42, changeValue: '司庆退潮 · 回落', color: colors.success },
-  { name: '徐来', heat: 38, changeValue: '日常经营 · 回落', color: colors.success },
-  { name: '麦麦', heat: 34, changeValue: '退赛/关系 · 局部', color: colors.secondary },
-  { name: '尹妹', heat: 28, changeValue: '司庆退潮 · 回落', color: colors.success },
+  { name: '九叔', heat: 88, changeValue: '破圈+旧怨 · 上升', color: colors.danger },
+  { name: '哈哈', heat: 80, changeValue: '旧怨复燃 · 上升', color: colors.danger },
+  { name: '张秋水', heat: 72, changeValue: '露脸围观 · 上升', color: colors.accent },
+  { name: '六月', heat: 40, changeValue: '司庆退潮 · 回落', color: colors.success },
+  { name: '徐来', heat: 36, changeValue: '日常经营 · 回落', color: colors.success },
+  { name: '麦麦', heat: 32, changeValue: '退赛/关系 · 局部', color: colors.secondary },
 ];
 
 export const heatChartOption: EChartsOption = {

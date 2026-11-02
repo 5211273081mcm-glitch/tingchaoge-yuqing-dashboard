@@ -476,9 +476,10 @@ const DashboardOctoberPage: React.FC = () => {
                   本月核心结论
                 </div>
                 <p className="text-sm leading-relaxed" style={{ color: colors.textMuted }}>
-                  10月舆情压力<span style={{ color: colors.success }}>明显回落</span>，风险重心由9月司庆集中交付争议，转向
-                  <span style={{ color: colors.accent }}>真人曝光、头部竞争及主播行为边界</span>
-                  。张秋水醉酒露脸、九叔二创破圈及姜添、萨满粉群对立构成本月主要风险。当前阶段性降温不足以说明风险已消解，应抓住司庆后、嘉年华前的休整窗口，加快遗留整改与管理机制修缮，避免矛盾延续至年末重点活动。
+                  10月舆情压力较9月<span style={{ color: colors.success }}>明显回落</span>
+                  ，风险重心转向
+                  <span style={{ color: colors.accent }}>真人曝光、头部竞争及主播行为约束</span>
+                  。张秋水醉酒露脸、九叔二创破圈、姜添与萨满粉群对立，以及月底九叔、哈哈旧怨复燃构成本月主要风险。月底新增事件仍在延续，不能将全月回落等同于重点问题已经收尾；应抓住休整窗口加快整改，尤其治理反复挑衅、情绪营销与拒不配合处置。
                 </p>
               </div>
             </div>
@@ -532,7 +533,7 @@ const DashboardOctoberPage: React.FC = () => {
             <div className="flex items-center gap-2 mb-4">
               <ListChecks className="w-5 h-5" style={{ color: colors.accent }} />
               <h2 className="text-base font-bold tech-font tracking-tight" style={{ color: colors.text }}>
-                核心问题 TOP8
+                核心问题 TOP9
               </h2>
               <span className="text-[10px] ml-2" style={{ color: colors.textMuted }}>
                 本月主要风险事件
@@ -679,7 +680,7 @@ const DashboardOctoberPage: React.FC = () => {
               <div className="flex items-start gap-2 mt-1">
                 <AlertCircle className="w-3 h-3 mt-0.5 shrink-0" style={{ color: colors.textMuted }} />
                 <span className="text-[10px] leading-relaxed" style={{ color: colors.textMuted }}>
-                  10月豆瓣讨论整体回落，关注重新向头部竞争与主播日常经营集中；下旬《拜托了搭档S4》带动阶段性回升。姜添、萨满逆势升温，讨论由各自表现转向相互比较；其余多数主播随司庆议题退潮而降温。
+                  10月豆瓣讨论整体回落，关注重新向头部竞争与主播日常经营集中；下旬《拜托了搭档S4》带动阶段性回升。姜添、萨满逆势升温；月底九叔、哈哈旧怨复燃亦可能继续牵动围观。其余多数主播随司庆议题退潮而降温。
                 </span>
               </div>
             </div>
